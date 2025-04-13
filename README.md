@@ -1,8 +1,6 @@
 # Secure Group Messaging
 
-Group Messaging API
-
-## Description
+## Overview
 
 This project is a Group Messaging API built with Node.js, Express, and MongoDB. It allows users to create groups, join or leave groups, and send messages within groups. The API also supports real-time communication using Socket.IO and provides a Swagger UI for API documentation.
 
