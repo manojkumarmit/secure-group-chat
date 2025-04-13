@@ -39,7 +39,11 @@ This project is a Group Messaging API built with Node.js, Express, and MongoDB. 
 3. Create a `.env` file in the root directory and add the following environment variables:
    ```
    MONGO_URI=your_mongodb_connection_string
-   PORT=5000
+   JWT_SECRET=your_jwt_secret
+   AWS_ACCESS_KEY_ID=your_aws_access_key_id
+   AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
+   AWS_REGION=your_aws_region
+   S3_BUCKET_NAME=your_s3_bucket_name
    ```
 
 4. Start the server:
