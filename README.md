@@ -1,4 +1,4 @@
-# Project Title
+# Secure Group Messaging
 
 Group Messaging API
 
