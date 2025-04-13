@@ -94,7 +94,3 @@ The API uses Socket.IO for real-time communication. The `io` instance is made av
 
 - CORS: Configured to allow cross-origin requests
 - Authentication Middleware: Protects routes to ensure only authenticated users can access them
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
