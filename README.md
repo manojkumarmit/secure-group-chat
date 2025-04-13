@@ -27,8 +27,8 @@ This project is a Group Messaging API built with Node.js, Express, and MongoDB. 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/group-messaging-api.git
-   cd group-messaging-api
+   git clone [https://github.com/yourusername/group-messaging-api.git](https://github.com/manojkumarmit/secure-group-chat.git)
+   cd secure-group-chat
    ```
 
 2. Install dependencies:
