@@ -1,8 +1,6 @@
-# Project Title
+# Secure Group Messaging
 
-Group Messaging API
-
-## Description
+## Overview
 
 This project is a Group Messaging API built with Node.js, Express, and MongoDB. It allows users to create groups, join or leave groups, and send messages within groups. The API also supports real-time communication using Socket.IO and provides a Swagger UI for API documentation.
 
@@ -29,8 +27,8 @@ This project is a Group Messaging API built with Node.js, Express, and MongoDB. 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/group-messaging-api.git
-   cd group-messaging-api
+   git clone https://github.com/manojkumarmit/secure-group-chat.git
+   cd secure-group-chat
    ```
 
 2. Install dependencies:
@@ -41,7 +39,11 @@ This project is a Group Messaging API built with Node.js, Express, and MongoDB. 
 3. Create a `.env` file in the root directory and add the following environment variables:
    ```
    MONGO_URI=your_mongodb_connection_string
-   PORT=5000
+   JWT_SECRET=your_jwt_secret
+   AWS_ACCESS_KEY_ID=your_aws_access_key_id
+   AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
+   AWS_REGION=your_aws_region
+   S3_BUCKET_NAME=your_s3_bucket_name
    ```
 
 4. Start the server:
@@ -94,7 +96,3 @@ The API uses Socket.IO for real-time communication. The `io` instance is made av
 
 - CORS: Configured to allow cross-origin requests
 - Authentication Middleware: Protects routes to ensure only authenticated users can access them
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
