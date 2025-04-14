@@ -385,8 +385,11 @@ router.post("/:id/join", auth, async (req, res) => {
  */
 router.post("/:id/leave", auth, async (req, res) => {
     const group = await Group.findById(req.params.id);
-    if (group.creator.toString() === req.user.id) {
-        return res.status(400).json({ error: "Owner must transfer ownership before leaving" });
+    if (!group) {
+        return res.status(404).json({ error: 'Group not found' });
+    }
+    if (!group.creator) {
+        return res.status(400).json({ error: 'Group creator information is missing' });
     }
     group.members = group.members.filter(id => id.toString() !== req.user.id);
     await group.save();
@@ -486,8 +489,14 @@ router.post("/:id/addMember", auth, async (req, res) => {
  */
 router.delete("/:id", auth, async (req, res) => {
     const group = await Group.findById(req.params.id);
+    if (!group) {
+        return res.status(404).json({ error: 'Group not found' });
+    }
+    if (!group.creator) {
+        return res.status(400).json({ error: 'Group creator information is missing' });
+    }
     if (group.creator.toString() !== req.user.id) {
-        return res.status(403).json({ error: "Only the owner can delete the group" });
+        return res.status(403).json({ error: 'You are not authorized to perform this action' });
     }
     await Group.deleteOne({ _id: req.params.id });
     res.status(204).end();
@@ -552,8 +561,14 @@ router.delete("/:id", auth, async (req, res) => {
 router.post("/:id/transfer", auth, async (req, res) => {
     const { newOwnerId } = req.body;
     const group = await Group.findById(req.params.id);
+    if (!group) {
+        return res.status(404).json({ error: 'Group not found' });
+    }
+    if (!group.creator) {
+        return res.status(400).json({ error: 'Group creator information is missing' });
+    }
     if (group.creator.toString() !== req.user.id) {
-        return res.status(403).json({ error: "Only owner can transfer ownership" });
+        return res.status(403).json({ error: 'You are not authorized to perform this action' });
     }
     group.creator = newOwnerId;
     await group.save();
